@@ -28,13 +28,17 @@ class IFIHomeViewController: UIViewController,WKUIDelegate,WKNavigationDelegate 
         super.viewDidLoad()
 
         title = "首页"
+        startLoad()
     }
    override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         wkWebView.frame = view.bounds
     }
     func startLoad() {
-        
+        let filePath = Bundle.main.path(forResource: "IFIHomePage", ofType: "html", inDirectory: "web/html")
+        let url = URL.init(fileURLWithPath: filePath!, relativeTo: nil)
+        let request = URLRequest.init(url: url)
+        wkWebView.load(request)
     }
     // webview 开始加载
     func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {

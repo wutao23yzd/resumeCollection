@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		38666881208F828400CC0119 /* Web in Resources */ = {isa = PBXBuildFile; fileRef = 38666880208F828400CC0119 /* Web */; };
 		387EC024208F176E00709B37 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387EC023208F176E00709B37 /* AppDelegate.swift */; };
 		387EC029208F176E00709B37 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 387EC027208F176E00709B37 /* Main.storyboard */; };
 		387EC02B208F176E00709B37 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 387EC02A208F176E00709B37 /* Assets.xcassets */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		38666880208F828400CC0119 /* Web */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Web; sourceTree = "<group>"; };
 		387EC020208F176E00709B37 /* interviewForiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = interviewForiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		387EC023208F176E00709B37 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		387EC028208F176E00709B37 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -58,8 +60,8 @@
 		387EC022208F176E00709B37 /* interviewForiOS */ = {
 			isa = PBXGroup;
 			children = (
+				38666880208F828400CC0119 /* Web */,
 				387EC035208F19A100709B37 /* Controller */,
-				387EC036208F19A100709B37 /* Web */,
 				387EC023208F176E00709B37 /* AppDelegate.swift */,
 				387EC027208F176E00709B37 /* Main.storyboard */,
 				387EC02A208F176E00709B37 /* Assets.xcassets */,
@@ -77,13 +79,6 @@
 				387EC03B208F1F1F00709B37 /* IFIHomeViewController.swift */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		387EC036208F19A100709B37 /* Web */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Web;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -146,6 +141,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				387EC02E208F176E00709B37 /* LaunchScreen.storyboard in Resources */,
+				38666881208F828400CC0119 /* Web in Resources */,
 				387EC02B208F176E00709B37 /* Assets.xcassets in Resources */,
 				387EC029208F176E00709B37 /* Main.storyboard in Resources */,
 			);

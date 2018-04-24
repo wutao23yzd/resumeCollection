@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>答案</title>
+    <link rel="stylesheet" href="../css/mui.min.css">
+    <style>
+         li {
+             font-size: 30px;
+             line-height: 36px;
+         }
+    </style>
+</head>
+<body>
+    答案：
+    <div id="ansContent">
+    </div>
+    说明：
+    <div>
+        <ul>
+            <li>mui的plusReady方法似乎只能用于其自带基座（HBuilder），其他方式无效</li>
+            <li>因此，界面传值的方式，采用url</li>
+        </ul>
+    </div>
+    <script src="../js/mui.min.js"></script>
+    <script src="../js/jquery-3.3.1.min.js"></script>
+    <script>
+        mui.init({
+
+        });
+        mui.plusReady(function(){
+
+        });
+        //添加newId自定义事件监听
+        window.addEventListener('newsId',function(event){
+            //获得事件参数
+            var id = event.detail.id;
+
+        });
+
+        var url=location.search;
+
+        var Request = new Object();
+
+        var Request = new Object();
+         if(url.indexOf("?")!=-1)
+            {
+                var str = url.substr(1)　//去掉?号
+                strs = str.split("&");
+                for(var i=0;i<strs.length;i++)
+                {
+                    Request[strs[i ].split("=")[0]]=decodeURI(strs[ i].split("=")[1]);
+                }
+             }
+
+        if (Request.id && Request.id === 'first') {
+             console.log('zhixinglema');
+             var ansHtml = '<ol>' +
+                     '<li>#import和#include都能完整地包含某个文件的内容，#import能防止同一个文件被包含多次</li>' +
+                     '<li>@class仅仅是声明一个类名，并不会包含类的完整声明;@class还能解决循环包含的问题</li>'+
+                     '<li>#import <> 用来包含系统自带的文件，#import “”用来包含自定义的文件</li>'+
+                 '</ol>';
+                $('#ansContent').html(ansHtml)
+        }
+
+
+    </script>
+</body>
+</html>

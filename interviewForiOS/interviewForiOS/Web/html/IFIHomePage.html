@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="../css/mui.min.css">
+    <style>
+        a {
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <div class="mui-content">
+        <ul id="list" class="mui-table-view mui-table-view-chevron">
+            <li class="mui-table-view-cell">
+                <div class="mui-navigate-right" id="first">
+                    1.#import 跟 #include、@class有什么区别？＃import<> 跟 #import""又什么区别？
+                </div>
+            </li>
+        </ul>
+    </div>
+    <script src="../js/mui.min.js"></script>
+    <script src="../js/update.js"></script>
+    <script src="../js/jquery-3.3.1.min.js"></script>
+    <script>
+        mui.init({
+            preloadPages:[{
+                id:'IFIAnswer.html',
+                url:'IFIAnswer.html'
+            }
+            ]
+        });
+        mui.plusReady(function(){
+
+        });
+
+        var detailPage = null;
+        //主列表点击事件
+        mui('#list').on('tap', '.mui-table-view-cell .mui-navigate-right', function() {
+            // 获取id
+            var id = this.getAttribute("id");
+
+            //非plus环境，直接走href跳转
+            if(!mui.os.plus) {
+                location.href = "IFIAnswer.html?id=" + id;
+                return;
+            }
+            //获得详情页面
+            if(!detailPage){
+                detailPage = plus.webview.getWebviewById('IFIAnswer.html');
+            }
+            //触发详情页面的newsId事件
+            mui.fire(detailPage,'newsId',{
+                id:id
+            });
+            mui.openWindow({
+                url:'IFIAnswer.html'
+            });
+
+        });
+    </script>
+
+</body>
+</html>
