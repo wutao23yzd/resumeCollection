@@ -69,6 +69,81 @@
                 </div>
             </li>
             <li class="mui-table-view-divider">第二天</li>
+            <li class="mui-table-view-cell">
+                <div class="mui-navigate-right seconday" id="ten">
+                    1. 深拷贝和浅拷贝的区别
+                </div>
+            </li>
+            <li class="mui-table-view-cell">
+                <div class="mui-navigate-right seconday" id="eleven">
+                    2. 分类的优势是什么，分类和继承的不同点
+                </div>
+            </li>
+            <li class="mui-table-view-cell">
+                <div class="mui-navigate-right seconday" id="twelve">
+                    3. 分类和扩展的区别
+                </div>
+            </li>
+            <li class="mui-table-view-cell">
+                <div class="mui-navigate-right seconday" id="thirteen">
+                    4. oc中的协议和java中的接口区别在哪里
+                </div>
+            </li>
+            <li class="mui-table-view-cell">
+                <div class="mui-navigate-right seconday" id="fourteen">
+                    5. kvo和kvc是什么
+                </div>
+            </li>
+            <li class="mui-table-view-cell">
+                <div class="mui-navigate-right seconday" id="fifthteen">
+                    7. 代理模式的作用
+                </div>
+            </li>
+            <li class="mui-table-view-cell">
+                <div class="mui-navigate-right seconday" id="sixteen">
+                    8. oc中可变类型和不可变类型的区别
+                </div>
+            </li>
+            <li class="mui-table-view-cell">
+                <div class="mui-navigate-right seconday" id="seventeen">
+                    9. 为什么说oc是一门动态语言
+                </div>
+            </li>
+            <li class="mui-table-view-cell">
+                <div class="mui-navigate-right seconday" id="eighteen">
+                    10. 通知和代理的区别
+                </div>
+            </li>
+            <li class="mui-table-view-cell">
+                <div class="mui-navigate-right seconday" id="nineteen">
+                    11. 什么是多态
+                </div>
+            </li>
+            <li class="mui-table-view-cell">
+                <div class="mui-navigate-right seconday" id="twenty">
+                    12. 单例是什么
+                </div>
+            </li>
+            <li class="mui-table-view-cell">
+                <div class="mui-navigate-right seconday" id="twentyone">
+                    13. 什么是响应者链
+                </div>
+            </li>
+            <li class="mui-table-view-cell">
+                <div class="mui-navigate-right seconday" id="twentytwo">
+                    14.selector和方法的区别
+                </div>
+            </li>
+            <li class="mui-table-view-cell">
+                <div class="mui-navigate-right seconday" id="twentythree">
+                    15.OC中有垃圾回收机制吗？
+                </div>
+            </li>
+            <li class="mui-table-view-cell">
+                <div class="mui-navigate-right seconday" id="twentyfour">
+                    16.NSOperation queue是什么
+                </div>
+            </li>
         </ul>
     </div>
     <script src="../js/mui.min.js"></script>
@@ -104,6 +179,19 @@
             mui.openWindow({
                 url:'IFIAnswer.html'
             });
+
+        });
+        // 第二天
+        mui('#list').on('tap', '.mui-table-view-cell .seconday', function() {
+            // 获取id
+            var id = this.getAttribute("id");
+
+            //非plus环境，直接走href跳转
+            if(!mui.os.plus) {
+                location.href = "IFIAnswerT.html?id=" + id;
+                return;
+            }
+
 
         });
     </script>

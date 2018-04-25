@@ -20,3 +20,5 @@ swift代码
 ### 2018年4月25日，第一天面试题
 -----
 ![img](https://github.com/wutao23yzd/resumeCollection/blob/master/firstDay.png)
+### 2018年4月26日，第二天面试题
+![img](https://github.com/wutao23yzd/resumeCollection/blob/master/secondday.png)
