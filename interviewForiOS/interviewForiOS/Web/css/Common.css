@@ -1,0 +1,68 @@
+/*  导航栏，如果最大高度小于800，导航栏高度为64，否则为88px */
+@media only screen and (max-height: 800px) {
+    header {
+        padding-top: 20px;
+    }
+    .mui-content{
+        margin-top: 64px;
+    }
+}
+@media only screen and (min-height: 800px) {
+    header {
+        padding-top: 44px;;
+    }
+    .mui-content{
+        margin-top: 88px;
+    }
+}
+body {
+    margin:0;
+    padding:0;
+}
+header{
+    position: fixed;
+    left:0;
+    right:0;
+    top:0;
+    /*height: 44px; 设置之后 该height会包含padding*/
+    width: 100%;
+    z-index: 100;
+    background-color: green;
+}
+header ._left {
+    display: inline-block;
+    margin-left: 15px;
+    margin-top: 9px;
+    margin-bottom: 9px;
+    width: 30px;
+    height: 26px;
+    z-index:99999
+}
+header .mui-title{
+    height: 44px;
+    pointer-events: none;
+    color: white;
+}
+header ._right {
+    display: inline-block;
+    position: absolute;
+    right:0;
+    bottom: 0;
+}
+header ._right img {
+    margin-right: 15px;
+    margin-bottom: 0px;
+    width: 30px;
+    height: 44px;
+}
+.nav_shandow_line {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    height: 1px;
+    background-color: lightgray;
+}
+a {
+    display: inline-block;
+}

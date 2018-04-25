@@ -7,20 +7,68 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <link rel="stylesheet" href="../css/mui.min.css">
+    <link rel="stylesheet" href="../css/Common.css">
     <style>
-        a {
-            display: inline-block;
-        }
+
     </style>
 </head>
 <body>
-    <div class="mui-content">
+<header>
+    <a class="_left mui-action-back mui-icon mui-icon-left-nav mui-pull-left" ></a>
+    <h1 class="mui-title">问题</h1>
+    <div class="nav_shandow_line"></div>
+</header>
+
+<div class="mui-content">
         <ul id="list" class="mui-table-view mui-table-view-chevron">
+            <li class="mui-table-view-divider">第一天</li>
             <li class="mui-table-view-cell">
                 <div class="mui-navigate-right" id="first">
                     1.#import 跟 #include、@class有什么区别？＃import<> 跟 #import""又什么区别？
                 </div>
             </li>
+            <li class="mui-table-view-cell">
+                <div class="mui-navigate-right" id="second">
+                    2.属性readwrite，readonly，assign，retain，copy，nonatomic 各是什么作用，在那种情况下用？
+                </div>
+            </li>
+            <li class="mui-table-view-cell">
+                <div class="mui-navigate-right" id="third">
+                    3.写一个setter方法用于完成@property （nonatomic,retain）NSString *name,写一个setter方法用于完成@property（nonatomic，copy）NSString *name.
+                </div>
+            </li>
+            <li class="mui-table-view-cell">
+                 <div class="mui-navigate-right" id="four">
+                     4. 对于语句NSString*obj = [[NSData alloc] init]; ，编译时和运行时obj分别是什么类型？
+                 </div>
+            </li>
+            <li class="mui-table-view-cell">
+                <div class="mui-navigate-right" id="five">
+                    5.常见的object-c的数据类型有那些， 和C的基本数据类型有什么区别？
+                </div>
+            </li>
+            <li class="mui-table-view-cell">
+                <div class="mui-navigate-right" id="six">
+                    6.Objective-C如何对内存管理的,说说你的看法和解决方法?
+                </div>
+            </li>
+            <li class="mui-table-view-cell">
+                <div class="mui-navigate-right" id="seven">
+                    7.内存管理的几条原则时什么？按照默认法则.哪些方法生成的对象需要手动释放？在和property结合的时候怎样有效的避免内存泄露？
+                </div>
+
+            </li>
+            <li class="mui-table-view-cell">
+                <div class="mui-navigate-right" id="eight">
+                    8. 看下面的程序,三次NSLog会输出什么？为什么？
+                </div>
+            </li>
+            <li class="mui-table-view-cell">
+                <div class="mui-navigate-right" id="nine">
+                    9. OC中创建线程的方法是什么？如果指定在主线程中执行代码？如何延时执行代码？
+                </div>
+            </li>
+            <li class="mui-table-view-divider">第二天</li>
         </ul>
     </div>
     <script src="../js/mui.min.js"></script>
@@ -28,11 +76,7 @@
     <script src="../js/jquery-3.3.1.min.js"></script>
     <script>
         mui.init({
-            preloadPages:[{
-                id:'IFIAnswer.html',
-                url:'IFIAnswer.html'
-            }
-            ]
+
         });
         mui.plusReady(function(){
 

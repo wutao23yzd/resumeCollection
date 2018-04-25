@@ -8,7 +8,9 @@
 
 import UIKit
 import WebKit
-class IFIHomeViewController: UIViewController,WKUIDelegate,WKNavigationDelegate {
+class IFIHomeViewController: UIViewController,WKUIDelegate,WKNavigationDelegate,WKScriptMessageHandler{
+    
+    var webPage:Int = 0;
     
     lazy var wkConfig:WKWebViewConfiguration = {
         let tempWkConfig = WKWebViewConfiguration()
@@ -28,7 +30,28 @@ class IFIHomeViewController: UIViewController,WKUIDelegate,WKNavigationDelegate 
         super.viewDidLoad()
 
         title = "首页"
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem.init(title: "返回", style:  UIBarButtonItemStyle.plain, target: self, action: #selector(goback))
+        navigationController?.setNavigationBarHidden(true, animated: true)
+        if #available(iOS 11.0, *) {
+            wkWebView.scrollView.contentInsetAdjustmentBehavior = .never
+        }
         startLoad()
+    }
+    @objc func goback(){
+        
+        if webPage == 1 {
+            wkWebView.goBack()
+            navigationController?.setNavigationBarHidden(true, animated: true)
+        }
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        wkWebView.configuration.userContentController.add(self, name: "pushWebPage")
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        wkWebView.configuration.userContentController.removeScriptMessageHandler(forName: "pushWebPage")
     }
    override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -56,13 +79,30 @@ class IFIHomeViewController: UIViewController,WKUIDelegate,WKNavigationDelegate 
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
         // 允许页面跳转
         print(navigationAction.request.url)
+        
         decisionHandler(WKNavigationActionPolicy.allow)
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+    // js调用oc
+    func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
+        let dict = message.body as! Dictionary<String, Any>
+        
+        let methodName = dict["method"] as! String
+        let param = dict["data"] as! Dictionary<String, String>
+        
+        if methodName == "openWebPage" {
+            navigationController?.setNavigationBarHidden(false, animated: true)
+            title = param["title"]
+            webPage = 1
+        }
+    }
+    // oc调用js
+    func ocCallJs() {
+        
+    }
 
     /*
     // MARK: - Navigation

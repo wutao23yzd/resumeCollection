@@ -3,28 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <title>答案</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <link rel="stylesheet" href="../css/mui.min.css">
+    <link rel="stylesheet" href="../css/Common.css">
     <style>
          li {
-             font-size: 30px;
-             line-height: 36px;
+             font-size: 18px;
+             line-height: 20px;
          }
+        .rsection{
+            padding: 5px 10px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        ._left{
+            z-index: 10000;
+        }
+        .textDes {
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
     </style>
 </head>
 <body>
-    答案：
+<header>
+    <a class="_left mui-action-back mui-icon mui-icon-left-nav mui-pull-left" id="reback"></a>
+    <h1 class="mui-title">答案</h1>
+    <div class="nav_shandow_line"></div>
+</header>
+
+
+<div class="mui-content">
+    <div class="rsection">答案：</div>
     <div id="ansContent">
     </div>
-    说明：
-    <div>
-        <ul>
-            <li>mui的plusReady方法似乎只能用于其自带基座（HBuilder），其他方式无效</li>
-            <li>因此，界面传值的方式，采用url</li>
-        </ul>
-    </div>
+
+    <div id="description"></div>
+</div>
+
     <script src="../js/mui.min.js"></script>
     <script src="../js/jquery-3.3.1.min.js"></script>
     <script>
+
+        $('#reback').on('tap',function () {
+           // mui.back();
+        });
+
         mui.init({
 
         });
@@ -53,16 +80,162 @@
                 }
              }
 
-        if (Request.id && Request.id === 'first') {
-             console.log('zhixinglema');
-             var ansHtml = '<ol>' +
-                     '<li>#import和#include都能完整地包含某个文件的内容，#import能防止同一个文件被包含多次</li>' +
-                     '<li>@class仅仅是声明一个类名，并不会包含类的完整声明;@class还能解决循环包含的问题</li>'+
-                     '<li>#import <> 用来包含系统自带的文件，#import “”用来包含自定义的文件</li>'+
-                 '</ol>';
-                $('#ansContent').html(ansHtml)
+        if (Request.id) {
+             // 1.
+            if (Request.id === 'first') {
+                var ansHtml = '<ol>' +
+                    '<li>#import和#include都能完整地包含某个文件的内容，#import能防止同一个文件被包含多次</li>' +
+                    '<li>@class仅仅是声明一个类名，并不会包含类的完整声明;@class还能解决循环包含的问题</li>'+
+                    '<li>#import <> 用来包含系统自带的文件，#import “”用来包含自定义的文件</li>'+
+                    '</ol>';
+                $('#ansContent').html(ansHtml);
+                var desHtml = '    <div class="rsection">说明：</div>\n' +
+                    '    <div>\n' +
+                    '        <ul>\n' +
+                    '            <li>mui的plusReady方法似乎只能用于其自带基座（HBuilder），其他方式无效</li>\n' +
+                    '            <li>因此，界面传值的方式，采用url</li>\n' +
+                    '            <li>当一个元素的高度固定，再设置其padding时，其元素内容高度=固定高度-padding</li>\n' +
+                    '            <li>当一个元素的高度不固定，设置其padding时，其元素内容高度不变，元素高度会随着padding的变化而变化</li>\n' +
+                    '            <li>absolute定位不占位</li>\n' +
+                    '        </ul>\n' +
+                    '    </div>';
+                $('#description').html(desHtml);
+            }
+            // 2.
+            else if (Request.id === 'second') {
+                var ansHtml = '<ol>' +
+                    '<li>readwrite：同时生成get方法和set方法的声明和实现</li>' +
+                    '<li>readonly：只生成get方法的声明和实现</li>'+
+                    '<li> assign：set方法的实现是直接赋值，用于基本数据类型</li>'+
+                    '<li>retain：set方法的实现是release旧值，retain新值，用于OC对象类型</li>'+
+                    '<li> copy：set方法的实现是release旧值，copy新值，用于NSString、block等类型</li>'+
+                    '<li>retain：set方法的实现是release旧值，retain新值，用于OC对象类型</li>'+
+                    '<li>nonatomic：非原子性，set/getter方法的实现不加锁，不安全，性能高（atomic性能低，atomic通过锁定机制来确保其原子性,但只是读/写安全,不能绝对保证线程的安全，当多线程同时访问的时候，会造成线程不安全。可以使用线程锁来保证线程的安全。参考连接：'+'<a href="https://www.jianshu.com/p/7288eacbb1a2" id="webPage">点击查看：https://www.jianshu.com/p/7288eacbb1a2</a>'+
+            '）</li>'+
+                    '</ol>';
+                $('#ansContent').html(ansHtml);
+            }
+            //3
+            else if (Request.id === 'third') {
+                var ansHtml = '<p>@property (nonatomic, retain) NSString *name;</p>' +
+                '<p>- (void)setName:(NSString *)name</p>'+
+                '<p>{</p>' +
+                '<p>&nbsp;&nbsp;if (_name != name) {</p>' +
+                '<p>&nbsp;&nbsp;[_name release];</p>' +
+                '<p>&nbsp;&nbsp;_name = [name retain];</p>' +
+                '<p>}</p>' +
+                '<p>}</p>';
+                ansHtml += '<p>@property(nonatomic, copy) NSString *name;</p>'+
+                        '<p>- (void)setName:(NSString *)name</p>' +
+                        '<p>{</p>' +
+                        '<p>&nbsp;&nbsp;if (_name != name) {</p>'+
+                        '<p>&nbsp;&nbsp;[_name release];</p>'+
+                        '<p>&nbsp;&nbsp;_name = [name copy];</p>'+
+                    '<p>}</p>' +
+                    '<p>}</p>';
+                    $('#ansContent').html(ansHtml);
+            }
+            //4
+            else if (Request.id === 'four') {
+                var ansHtml = '<ol>' +
+                    '<li>编译时是NSString类型' +
+                    '<li>运行时是NSData类型</li>'+
+                    '</ol>';
+                $('#ansContent').html(ansHtml);
+            }
+            //5.
+            else if (Request.id === 'five') {
+                var ansHtml = '<ol>' +
+                    '<li>常用OC类型：NSString、NSArray、NSDictionary、NSData、NSNumber等' +
+                    '<li>OC对象需要手动管理内存，C的基本数据类型不需要管理内存</li>'+
+                    '</ol>';
+                $('#ansContent').html(ansHtml);
+            }
+            //6.
+            else if (Request.id === 'six') {
+                var ansHtml = '<ol>' +
+                    '<li>每个对象都有一个引用计数器，每个新对象的计数器是1，当对象的计数器减为0时，就会被销毁' +
+                    '<li>通过retain可以让对象的计数器+1、release可以让对象的计数器-1</li>'+
+                    '<li>还可以通过autorelease pool管理内存</li>'+
+                    '<li>如果用ARC，编译器会自动生成管理内存的代码</li>'+
+                    '</ol>' +
+                    '<p>注意：不管是MRC还是ARC都是在编译时完成的</p>';
+                $('#ansContent').html(ansHtml);
+            }
+            //7.
+            else if (Request.id === 'seven') {
+                var ansHtml = '<ol>' +
+                    '<li>只要调用了alloc、copy、new方法产生了一个新对象，都必须在最后调用一次release或者autorelease</li>' +
+                    '<li>只要调用了retain，都必须在最后调用一次release或者autorelease</li>'+
+                    '<li>@property如果用了copy或者retian，就需要对不再使用的属性做一次release操作</li>'+
+                    '<li>如果用了ARC，另外讨论</li>'+
+                    '</ol>';
+                $('#ansContent').html(ansHtml);
+            }
+            //8
+            else if (Request.id === 'eight') {
+                var ansHtml = '<p>&nbsp;&nbsp;NSMutableArray* ary = [[NSMutableArray array] retain];</p>' +
+                    ' <p>&nbsp;&nbsp;NSString *str = [NSString stringWithFormat:@"test"];</p>' +
+                    ' <p>&nbsp;&nbsp;[str retain];</p>' +
+                    ' <p>&nbsp;&nbsp;[ary addObject:str];</p>' +
+                    ' <p>&nbsp;&nbsp;NSLog(@"%ld", (unsigned long)[str retainCount]);</p>' +
+                    ' <p>&nbsp;&nbsp;[str retain];</p>' +
+                    ' <p>&nbsp;&nbsp;str release];</p>' +
+                    ' <p>&nbsp;&nbsp;[str release];</p>' +
+                    ' <p>&nbsp;&nbsp; NSLog(@"%ld", (unsigned long)[str retainCount]);</p>' +
+                    ' <p>&nbsp;&nbsp;[ary removeAllObjects];</p>' +
+                    ' <p>&nbsp;&nbsp;NSLog(@"%ld", (unsigned long)[str retainCount]);</p>' +
+                    '\n' + '<br>' +'<br>';
+                ansHtml += '<div class="textDes">结果：-1、-1、-1 。-1代表没有引用计数或者引用计数非常大，因为str是字符串' +
+                    '，字符串在常量区，没有引用计数。引用计数为－1，这可以理解为NSString实际上是一个字符串常量，是没有引用计数的' +
+                    '（或者它的引用计数是一个很大的值（使用%lu可以打印查看），对它做引用计数操作没实质上的影响)'+
+                    '</div>';
+                $('#ansContent').html(ansHtml);
+            }
+            //9
+            else if (Request.id === 'nine') {
+                var ansHtml = '<ol>' +
+                    '<li>创建线程的方法' +
+                        '<ul>' +
+                            '<li>NSThread</li>' +
+                            '<li>NSOperationQueue和NSOperation</li>' +
+                            '<li>GCD</li>' +
+                        '</ul>'+
+                    '</li>' +
+                    '<li>主线程中执行代码'+
+                        '<ul>' +
+                            '<li>[self performSelectorOnMainThread: withObject: waitUntilDone:];</li>' +
+                            '<li>[self performSelector: onThread:[NSThread mainThread] withObject: waitUntilDone:];</li>' +
+                        '</ul>'+
+                    '</li>' +
+                    '<li>延时执行'+
+                        '<ul>' +
+                            '<li>' +
+                                '<p>double delayInSeconds = 2.0;</p>' +
+                                '<p>dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW,</p> '+
+                                '<p>(int64_t)(delayInSeconds * NSEC_PER_SEC));</p>' +
+                                '<p>dispatch_after(popTime, dispatch_get_main_queue(), ^(void){</p>'+
+                                '<p>});</p>'+
+                            '</li>' +
+                            '<li>[self performSelector: withObject: afterDelay:];</li>' +
+                            '<li>[NSTimer scheduledTimerWithTimeInterval: target: selector: userInfo: repeats:];</li>' +
+                        '</ul>'+
+                    '</li>' +
+                    '</ol>';
+                $('#ansContent').html(ansHtml);
+            }
         }
 
+        //
+
+        $('#webPage').on('tap',function () {
+            window.webkit.messageHandlers.pushWebPage.postMessage({method:"openWebPage",data:{'url':"https://www.jianshu.com/p/7288eacbb1a2",'title':"atomic与nonatomic"}});
+        });
+
+         function returnLastPage () {
+
+             mui.back();
+         }
 
     </script>
 </body>
