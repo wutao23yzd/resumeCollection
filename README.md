@@ -5,14 +5,14 @@ js调用swift
 js代码
 ```
 window.webkit.messageHandlers.pushWebPage.postMessage({method:"openWebPage",data:{'url':"",'title':""}});
-``
+```
 swift代码
 ```
 // 这段代码目前没用到
  wkWebView .evaluateJavaScript("returnLastPage", completionHandler: { [weak self](resut, error) in
   self?.navigationController?.setNavigationBarHidden(true, animated: true)
   })
-````
+```
 
 
 
