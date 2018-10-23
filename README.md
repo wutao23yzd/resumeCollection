@@ -22,3 +22,5 @@ swift代码
 ![img](https://github.com/wutao23yzd/resumeCollection/blob/master/firstDay.png)
 ### 2018年4月26日，第二天面试题
 ![img](https://github.com/wutao23yzd/resumeCollection/blob/master/secondday.png)
+### 2018年10月23日，用h5实现波浪效果
+![img](https://github.com/wutao23yzd/resumeCollection/blob/master/wave.gif)
