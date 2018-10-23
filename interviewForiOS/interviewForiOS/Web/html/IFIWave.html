@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>波浪效果</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <link rel="stylesheet" href="../css/mui.min.css">
+  <link rel="stylesheet" href="../css/Common.css">
+  <link rel="stylesheet" href="../css/wave.css">
+</head>
+<body>
+<header>
+  <a class="_left mui-action-back mui-icon mui-icon-left-nav mui-pull-left" id="reback"></a>
+  <h1 class="mui-title">h5波浪效果</h1>
+  <div class="nav_shandow_line"></div>
+</header>
+<div class="mui-content">
+  <div class="content_top"></div>
+  <div class="content_bottom">
+    <div class="hd">
+      <img src="../img/timg.jpeg" class="logo">
+      <img src="../img/wave.png" class="wave">
+      <img src="../img/wave.png" class="wave wave-bg">
+    </div>
+  </div>
+</div>
+<script src="../js/mui.min.js"></script>
+<script src="../js/jquery-3.3.1.min.js"></script>
+<script>
+  $('#reback').on('tap',function () {
+    // mui.back();
+  });
+  // 根据屏幕宽度算出的单位 rem,不知道为什么不使用与keyframe
+  $().ready(function () {
+    var deviceWidth = document.documentElement.clientWidth
+    document.documentElement.style.fontSize = deviceWidth / 7.5 + 'px'
+  })
+
+  mui.init({
+
+  });
+  mui.plusReady(function(){
+
+  });
+
+  function returnLastPage () {
+
+    mui.back();
+  }
+
+
+</script>
+</body>
+</html>

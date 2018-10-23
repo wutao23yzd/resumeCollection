@@ -1,0 +1,96 @@
+.mui-content {
+  background-color: #69c3aa;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+html, body{
+  height: 100%;
+  width: 100%;
+}
+.hd {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 10rem;
+  margin-left: -5rem;
+  height: 2rem;
+  transition: all .35s ease;
+}
+.content_top {
+  position: absolute;
+  top: 0.3rem;
+  width: 6rem;
+  height: 2rem;
+  opacity: 0;
+}
+.content_bottom {
+  flex: 1;
+  display: flex;
+  position: relative;
+  z-index: 10;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(244,244,244,0)), color-stop(0.1, #f4f4f4), to(#f4f4f4));
+  transform: translate3d(0,100%,0);
+  animation: rise 3s cubic-bezier(0.19, 1, 0.22, 1) .25s forwards;
+}
+@keyframes rise{
+  0% {opacity: 0;transform: translate3d(0,100%,0);}
+  50% {opacity: 1;}
+  100% {opacity: 1;transform: translate3d(0,225px,0);}
+}
+.logo {
+  position: absolute;
+  z-index: 2;
+  left: 50%;
+  bottom: 2rem;
+  width: 1.6rem;
+  height: 1.6rem;
+  margin-left: -0.8rem;
+  border-radius: 1.6rem;
+  animation: sway 10s ease-in-out infinite;
+  opacity: .95;
+}
+/*小船晃动效果，上下移动 + 加角度的左右摆动*/
+@keyframes sway{
+  0% {transform: translate3d(0,10px,0) rotate(-15deg); }
+  17% {transform: translate3d(0,0,0) rotate(25deg); }
+  34% {transform: translate3d(0,-10px,0) rotate(-20deg); }
+  50% {transform: translate3d(0,-5px,0) rotate(15deg); }
+  67% {transform: translate3d(0,5px,0) rotate(-25deg); }
+  84% {transform: translate3d(0,7.5px,0) rotate(15deg); }
+  100% {transform: translate3d(0,10px,0) rotate(-15deg); }
+}
+.wave {
+  position: absolute;
+  z-index: 3;
+  right: 0;
+  bottom: 0;
+  opacity: 0.725;
+  height: 2.6rem;
+  width: 22.5rem;
+  animation: wave 10s linear infinite;
+}
+.wave-bg {
+  z-index: 1;
+  animation: wave-bg 10.25s infinite;
+}
+@keyframes wave{
+  from {transform: translate3d(16.5vw,0,0);}
+  to {transform: translate3d(150vw,0,0);}
+}
+@keyframes wave-bg{
+  from {transform: translate3d(50vw,0,0);}
+  to {transform: translate3d(183vw,0,0);}
+}
+
