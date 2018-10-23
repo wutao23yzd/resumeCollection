@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>答案</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="../css/mui.min.css">
+    <link rel="stylesheet" href="../css/Common.css">
+    <style>
+        li {
+            font-size: 18px;
+            line-height: 20px;
+        }
+        .rsection{
+            padding: 5px 10px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        ._left{
+            z-index: 10000;
+        }
+        .textDes {
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
+    </style>
+</head>
+<body>
+<header>
+    <a class="_left mui-action-back mui-icon mui-icon-left-nav mui-pull-left" id="reback"></a>
+    <h1 class="mui-title">答案</h1>
+    <div class="nav_shandow_line"></div>
+</header>
+<div class="mui-content">
+    <div class="rsection">答案：</div>
+    <div id="ansContent">
+    </div>
+
+    <div id="description"></div>
+</div>
+<script src="../js/mui.min.js"></script>
+<script src="../js/jquery-3.3.1.min.js"></script>
+<script>
+
+    $('#reback').on('tap',function () {
+        // mui.back();
+    });
+
+    mui.init({
+
+    });
+    mui.plusReady(function(){
+
+    });
+    //添加newId自定义事件监听
+    window.addEventListener('newsId',function(event){
+        //获得事件参数
+        var id = event.detail.id;
+
+    });
+
+    var url=location.search;
+
+    var Request = new Object();
+
+    var Request = new Object();
+    if(url.indexOf("?")!=-1)
+    {
+        var str = url.substr(1)　//去掉?号
+        strs = str.split("&");
+        for(var i=0;i<strs.length;i++)
+        {
+            Request[strs[i ].split("=")[0]]=decodeURI(strs[ i].split("=")[1]);
+        }
+    }
+
+    if (Request.id) {
+        // 1.
+        if (Request.id === 'twentyfive') {
+            var ansHtml = '<h3>定义</h3>' +
+                '<p>自动释放池是oc提供的一种自动回收的机制，具有延迟释放的特性，' +
+                '即当我们创建了一个对象，并把他加入到了自动释放池中时，不会立即被释放，会等到一次runloop结束或者作用域' +
+                '超出{}或者超出[pool release]之后再被释放</p>' +
+                '<li>深拷贝：内容拷贝，会产生新对象</li>'+
+                '</ol>';
+            $('#ansContent').html(ansHtml);
+        }
+        // 2.
+        else if (Request.id === 'eleven') {
+            var ansHtml = '<ul>' +
+                '<li>分类的优点：分类可以在不修改原来类模型的基础上拓充方法</li>' +
+                '<li>分类与继承的区别：' +
+                '<ol>' +
+                '<li>分类只能扩充方法、不能扩充成员变量；继承可以扩充方法和成员变量</li>'+
+                '<li>继承会产生新的类</li>'+
+                '</ol>'+
+                '</li>'+
+                '</ul>';
+            $('#ansContent').html(ansHtml);
+        }
+        //3
+        else if (Request.id === 'twelve') {
+            var ansHtml = '<ol>' +
+                '<li>分类是有名称的，类扩展没有名称</li>' +
+                '<li>分类只能扩充方法、不能扩充成员变量；类扩展可以扩充方法和成员变量</li>'+
+                '<li>类扩展一般就写在.m文件中，用来扩充私有的方法和成员变量（属性）</li>'+
+                '</ol>';
+            $('#ansContent').html(ansHtml);
+        }
+        //4
+        else if (Request.id === 'thirteen') {
+            var ansHtml = '<ol>' +
+                '<li>Java的接口中声明的方法必须都实现</li>' +
+                '<li>Oc的protocol中声明的方法并不一定要实现</li>'+
+                '</ol>';
+            $('#ansContent').html(ansHtml);
+        }
+        //5.
+        else if (Request.id === 'fourteen') {
+            var ansHtml = '<ol>' +
+                '<li>KVC是键值编码，可以通过一个字符串的key（属性名）修改对象的属性值</li>' +
+                '<li>KVO是键值监听，可以监听一个对象属性值的改变</li>'+
+                '</ol>';
+            $('#ansContent').html(ansHtml);
+        }
+        //6.
+        else if (Request.id === 'fifthteen') {
+            var ansHtml = '<ol>' +
+                '<li>两个对象之间传递数据和消息</li>' +
+                '<li>解耦，拆分业务逻辑</li>'+
+                '</ol>';
+            $('#ansContent').html(ansHtml);
+        }
+        //7.
+        else if (Request.id === 'sixteen') {
+            var ansHtml = '<ol>' +
+                '<li> mutable是可变类型，比如NSMutableArray，可以动态往里面添加元素</li>' +
+                '<li>immutable是不可变类型，比如NSArray，固定的存储空间，不能添加元素</li>'+
+                '</ol>';
+            $('#ansContent').html(ansHtml);
+        }
+        //8
+        else if (Request.id === 'seventeen') {
+            var ansHtml = '<ol>' +
+                '<li> 动态绑定：对象类型在运行时才真正确定</li>' +
+                '<li>多态性</li>'+
+                '<li>消息机制</li>'+
+                '</ol>';
+            $('#ansContent').html(ansHtml);
+        }
+        //9
+        else if (Request.id === 'eighteen') {
+            var ansHtml = '<ol>' +
+                '<li>通过NSNotification可以给多个对象传递数据和消息</li>' +
+                '<li>通过protocol（代理模式）只能给一个对象传递数据和消息</li>'+
+                '</ol>';
+            $('#ansContent').html(ansHtml);
+        }
+        else if (Request.id === 'nineteen') {
+            var ansHtml = '<p>父类指针指向子类对象</p>';
+            $('#ansContent').html(ansHtml);
+        }
+        else if (Request.id === 'twenty') {
+            var ansHtml = '<p>保证程序运行过程中，永远只有一个对象实例。全局共享一份资源、节省不必要的内存开销</p>';
+            $('#ansContent').html(ansHtml);
+        }
+        else if (Request.id === 'twentyone') {
+            var ansHtml = '<ol>' +
+                '<li>UIResponder有一个nextResponder属性，通过该属性可以组成一个响应者链，' +
+                '事件或消息在其路径上进行传递</li>' +
+                '<li>如果UIResponder没有处理传给它的事件，会将未处理的消息转发给自己的nextResponder</li>'+
+                '</ol>';
+            $('#ansContent').html(ansHtml);
+        }
+        else if (Request.id === 'twentytwo') {
+            var ansHtml = '<p>通过一个selector可以找到方法地址，进而调用一个方法</p>';
+            $('#ansContent').html(ansHtml);
+        }
+        else if (Request.id === 'twentythree') {
+            var ansHtml = '<ol>' +
+                '<li>OC 1.0没有垃圾回收</li>' +
+                '<li>OC 2.0有垃圾回收，只能用在Mac上</li>'+
+                '<li>iOS中有ARC机制，是编译器特性，垃圾回收是运行时特性</li>'+
+                '</ol>';
+            $('#ansContent').html(ansHtml);
+        }
+        else if (Request.id === 'twentyfour') {
+            var ansHtml = '<p>用来存放NSOperation对象的队列，可以用来异步执行一些操作。 一般可以用在网络请求等耗时操作。</p>';
+            $('#ansContent').html(ansHtml);
+        }
+    }
+
+    //
+
+    $('#webPage').on('tap',function () {
+        window.webkit.messageHandlers.pushWebPage.postMessage({method:"openWebPage",data:{'url':"https://www.jianshu.com/p/7288eacbb1a2",'title':"atomic与nonatomic"}});
+    });
+
+    function returnLastPage () {
+
+        mui.back();
+    }
+
+</script>
+
+</body>
+</html>

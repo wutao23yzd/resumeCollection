@@ -144,6 +144,12 @@
                     16.NSOperation queue是什么
                 </div>
             </li>
+            <li class="mui-table-view-divider">第三天</li>
+            <li class="mui-table-view-cell">
+                <div class="mui-navigate-right threeday" id="twentyfive">
+                    1.谈谈对自动释放池autoreleasepool对理解
+                </div>
+            </li>
         </ul>
     </div>
     <script src="../js/mui.min.js"></script>
@@ -191,8 +197,17 @@
                 location.href = "IFIAnswerT.html?id=" + id;
                 return;
             }
+        });
+        // 第三天
+        mui('#list').on('tap', '.mui-table-view-cell .threeday', function() {
+            // 获取id
+            var id = this.getAttribute("id");
 
-
+            //非plus环境，直接走href跳转
+            if(!mui.os.plus) {
+                location.href = "IFIAnswerT.html?id=" + id;
+                return;
+            }
         });
     </script>
 

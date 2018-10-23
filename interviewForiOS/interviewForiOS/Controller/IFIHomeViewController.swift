@@ -58,7 +58,7 @@ class IFIHomeViewController: UIViewController,WKUIDelegate,WKNavigationDelegate,
         wkWebView.frame = view.bounds
     }
     func startLoad() {
-        let filePath = Bundle.main.path(forResource: "IFIHomePage", ofType: "html", inDirectory: "web/html")
+        let filePath = Bundle.main.path(forResource: "IFIHomePage", ofType: "html", inDirectory: "Web/html")
         let url = URL.init(fileURLWithPath: filePath!, relativeTo: nil)
         let request = URLRequest.init(url: url)
         wkWebView.load(request)
