@@ -24,6 +24,7 @@ swift代码
 ![img](https://github.com/wutao23yzd/resumeCollection/blob/master/secondday.png)
 ### 2018年10月23日，用h5实现波浪效果
 ![img](https://github.com/wutao23yzd/resumeCollection/blob/master/wave.gif)
+-----
 小船晃动效果，上下移动 + 加角度的左右摆动
 ```
 @keyframes sway{
@@ -47,3 +48,4 @@ swift代码
   to {transform: translate3d(183vw,0,0);}
 }
 ```
+
