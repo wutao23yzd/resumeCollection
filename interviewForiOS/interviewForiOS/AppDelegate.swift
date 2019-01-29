@@ -15,7 +15,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        self.window?.rootViewController = IFINavigationController(rootViewController: IFIHomeViewController())
+        // old : 采用userContentController 和 js交互
+        //self.window?.rootViewController = IFINavigationController(rootViewController: IFIHomeViewController())
+        // new : 采用WKWebViewJavascriptBridge框架，利用桥接文件和js交互
+        self.window?.rootViewController = IFINavigationController(rootViewController: IFINewHomeViewController())
         return true
     }
 

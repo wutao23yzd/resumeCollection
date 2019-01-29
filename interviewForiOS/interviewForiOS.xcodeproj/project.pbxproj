@@ -15,6 +15,12 @@
 		387EC038208F19F400709B37 /* IFINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387EC037208F19F400709B37 /* IFINavigationController.swift */; };
 		387EC03A208F1A5500709B37 /* IFIPreHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387EC039208F1A5500709B37 /* IFIPreHeader.swift */; };
 		387EC03C208F1F1F00709B37 /* IFIHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387EC03B208F1F1F00709B37 /* IFIHomeViewController.swift */; };
+		38E8A4F322002E5C003786EC /* WebViewJavascriptBridgeBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 38E8A4EB22002E5C003786EC /* WebViewJavascriptBridgeBase.m */; };
+		38E8A4F422002E5C003786EC /* WKWebViewJavascriptBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 38E8A4EC22002E5C003786EC /* WKWebViewJavascriptBridge.m */; };
+		38E8A4F522002E5C003786EC /* WebViewJavascriptBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 38E8A4ED22002E5C003786EC /* WebViewJavascriptBridge.m */; };
+		38E8A4F622002E5C003786EC /* WebViewJavascriptBridge_JS.m in Sources */ = {isa = PBXBuildFile; fileRef = 38E8A4F022002E5C003786EC /* WebViewJavascriptBridge_JS.m */; };
+		38E8A4FB220031CD003786EC /* IFINewHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E8A4FA220031CD003786EC /* IFINewHomeViewController.swift */; };
+		38E8A51822004D61003786EC /* WebForVue in Resources */ = {isa = PBXBuildFile; fileRef = 38E8A51722004D60003786EC /* WebForVue */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +34,17 @@
 		387EC037208F19F400709B37 /* IFINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IFINavigationController.swift; sourceTree = "<group>"; };
 		387EC039208F1A5500709B37 /* IFIPreHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IFIPreHeader.swift; sourceTree = "<group>"; };
 		387EC03B208F1F1F00709B37 /* IFIHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IFIHomeViewController.swift; sourceTree = "<group>"; };
+		38E8A4EB22002E5C003786EC /* WebViewJavascriptBridgeBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewJavascriptBridgeBase.m; sourceTree = "<group>"; };
+		38E8A4EC22002E5C003786EC /* WKWebViewJavascriptBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKWebViewJavascriptBridge.m; sourceTree = "<group>"; };
+		38E8A4ED22002E5C003786EC /* WebViewJavascriptBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewJavascriptBridge.m; sourceTree = "<group>"; };
+		38E8A4EE22002E5C003786EC /* WebViewJavascriptBridge_JS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewJavascriptBridge_JS.h; sourceTree = "<group>"; };
+		38E8A4EF22002E5C003786EC /* WebViewJavascriptBridgeBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewJavascriptBridgeBase.h; sourceTree = "<group>"; };
+		38E8A4F022002E5C003786EC /* WebViewJavascriptBridge_JS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewJavascriptBridge_JS.m; sourceTree = "<group>"; };
+		38E8A4F122002E5C003786EC /* WebViewJavascriptBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewJavascriptBridge.h; sourceTree = "<group>"; };
+		38E8A4F222002E5C003786EC /* WKWebViewJavascriptBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKWebViewJavascriptBridge.h; sourceTree = "<group>"; };
+		38E8A4F722002F18003786EC /* IFI-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "IFI-Bridging-Header.h"; sourceTree = "<group>"; };
+		38E8A4FA220031CD003786EC /* IFINewHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IFINewHomeViewController.swift; sourceTree = "<group>"; };
+		38E8A51722004D60003786EC /* WebForVue */ = {isa = PBXFileReference; lastKnownFileType = folder; path = WebForVue; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,12 +78,15 @@
 			isa = PBXGroup;
 			children = (
 				38666880208F828400CC0119 /* Web */,
+				38E8A51722004D60003786EC /* WebForVue */,
+				38E8A4E922002E5C003786EC /* ThirdLibrary */,
 				387EC035208F19A100709B37 /* Controller */,
 				387EC023208F176E00709B37 /* AppDelegate.swift */,
 				387EC027208F176E00709B37 /* Main.storyboard */,
 				387EC02A208F176E00709B37 /* Assets.xcassets */,
 				387EC02C208F176E00709B37 /* LaunchScreen.storyboard */,
 				387EC02F208F176E00709B37 /* Info.plist */,
+				38E8A4F722002F18003786EC /* IFI-Bridging-Header.h */,
 			);
 			path = interviewForiOS;
 			sourceTree = "<group>";
@@ -77,8 +97,32 @@
 				387EC037208F19F400709B37 /* IFINavigationController.swift */,
 				387EC039208F1A5500709B37 /* IFIPreHeader.swift */,
 				387EC03B208F1F1F00709B37 /* IFIHomeViewController.swift */,
+				38E8A4FA220031CD003786EC /* IFINewHomeViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		38E8A4E922002E5C003786EC /* ThirdLibrary */ = {
+			isa = PBXGroup;
+			children = (
+				38E8A4EA22002E5C003786EC /* WebViewJavascriptBridge */,
+			);
+			path = ThirdLibrary;
+			sourceTree = "<group>";
+		};
+		38E8A4EA22002E5C003786EC /* WebViewJavascriptBridge */ = {
+			isa = PBXGroup;
+			children = (
+				38E8A4EB22002E5C003786EC /* WebViewJavascriptBridgeBase.m */,
+				38E8A4EC22002E5C003786EC /* WKWebViewJavascriptBridge.m */,
+				38E8A4ED22002E5C003786EC /* WebViewJavascriptBridge.m */,
+				38E8A4EE22002E5C003786EC /* WebViewJavascriptBridge_JS.h */,
+				38E8A4EF22002E5C003786EC /* WebViewJavascriptBridgeBase.h */,
+				38E8A4F022002E5C003786EC /* WebViewJavascriptBridge_JS.m */,
+				38E8A4F122002E5C003786EC /* WebViewJavascriptBridge.h */,
+				38E8A4F222002E5C003786EC /* WKWebViewJavascriptBridge.h */,
+			);
+			path = WebViewJavascriptBridge;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -143,6 +187,7 @@
 				387EC02E208F176E00709B37 /* LaunchScreen.storyboard in Resources */,
 				38666881208F828400CC0119 /* Web in Resources */,
 				387EC02B208F176E00709B37 /* Assets.xcassets in Resources */,
+				38E8A51822004D61003786EC /* WebForVue in Resources */,
 				387EC029208F176E00709B37 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -154,10 +199,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38E8A4F622002E5C003786EC /* WebViewJavascriptBridge_JS.m in Sources */,
 				387EC038208F19F400709B37 /* IFINavigationController.swift in Sources */,
 				387EC03A208F1A5500709B37 /* IFIPreHeader.swift in Sources */,
 				387EC03C208F1F1F00709B37 /* IFIHomeViewController.swift in Sources */,
 				387EC024208F176E00709B37 /* AppDelegate.swift in Sources */,
+				38E8A4F322002E5C003786EC /* WebViewJavascriptBridgeBase.m in Sources */,
+				38E8A4F522002E5C003786EC /* WebViewJavascriptBridge.m in Sources */,
+				38E8A4FB220031CD003786EC /* IFINewHomeViewController.swift in Sources */,
+				38E8A4F422002E5C003786EC /* WKWebViewJavascriptBridge.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -303,6 +353,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.wutao.interviewForiOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/$(PROJECT_NAME)/IFI-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -321,6 +372,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.wutao.interviewForiOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/$(PROJECT_NAME)/IFI-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

@@ -14,6 +14,7 @@ class IFINavigationController: UINavigationController {
         super.viewDidLoad()
         
         interactivePopGestureRecognizer?.isEnabled = false
+        configureNavBarTheme()
     }
     func configureNavBarTheme() {
         // 1.设置背景图片
