@@ -15,7 +15,7 @@
     <div v-for="(items,itemsIndex) in allItems" class="mui-table-view mui-table-view-chevron">
       <div class="mui-table-view-divider">{{items.sectionTitle}}</div>
       <div v-for="(item,itemIndex) in items.questionList" class="mui-table-view-cell">
-        <div class="mui-navigate-right" @click="scanDetail(item.id)">
+        <div class="mui-navigate-right" @click="scanDetail(item.id, itemsIndex)">
           {{item.title}}
         </div>
       </div>
@@ -30,9 +30,11 @@
       allItems:[]
     },
     methods: {
-      scanDetail:function (id) {
-        // 调用OC
-        window.$bridge.callHandler('action1', {id: id}, function (data) {
+      // id代表题号，pageIndex代表该题属于哪一天
+      scanDetail:function (id, pageIndex) {
+        // 调用OC，将id和pageIndex传递到原生
+        window.$bridge.callHandler('action1', {id: id,pageIndex:pageIndex}, function (data) {
+          // data是OC返回的JSON数据
           var obj =  JSON.parse(data)
           // 根据oc返回的 加载url
           location.href = obj.href
@@ -55,11 +57,41 @@
         {title:'8. 看下面的程序,三次NSLog会输出什么？为什么？',id:"eight"},
         {title:'9. OC中创建线程的方法是什么？如果指定在主线程中执行代码？如何延时执行代码？',id:"nine"}
       ]}
+    // 第二天
+    var secondDay = {sectionTitle: '第二天',
+      questionList:[
+        {title:'1. 深拷贝和浅拷贝的区别',id:"ten"},
+        {title:'2. 分类的优势是什么，分类和继承的不同点',id:"eleven"},
+        {title:'3. 分类和扩展的区别',id:"twelve"},
+        {title:'4. oc中的协议和java中的接口区别在哪里',id:"thirteen"},
+        {title:'5. kvo和kvc是什么',id:"fourteen"},
+        {title:'6. 代理模式的作用',id:"fifthteen"},
+        {title:'7. oc中可变类型和不可变类型的区别',id:"sixteen"},
+        {title:'8. 为什么说oc是一门动态语言',id:"seventeen"},
+        {title:'9. 通知和代理的区别',id:"eighteen"},
+        {title:'10. 什么是多态',id:"nineteen"},
+        {title:'11. 单例是什么',id:"twenty"},
+        {title:'12. 什么是响应者链',id:"twentyone"},
+        {title:'13.selector和方法的区别',id:"twentytwo"},
+        {title:'14.OC中有垃圾回收机制吗？',id:"twentythree"},
+        {title:'15.NSOperation queue是什么？',id:"twentyfour"},
+      ]}
+    // 第三天
+    var threeDay = {sectionTitle: '第二天',
+      questionList:[
+        {title:'1.用h5实现波浪效果',id:"twentyfive"},
+      ]}
 
-    return [firstDay]
+    return [firstDay,secondDay,threeDay]
   }
 
   vm.allItems = produceDataSource()
+  setTimeout(function(){
+    // 当页面加载时，隐藏返回按钮
+    window.$bridge.callHandler('showBackItem', {hidden: true}, function (data) {
+    })
+  }, 500);
+
 
 </script>
 </body>

@@ -28,22 +28,48 @@ class IFINewHomeViewController: UIViewController,WKUIDelegate,WKNavigationDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // 导航栏相关
         title = "首页"
+        let returnButton = UIButton.init(type: UIButtonType.custom)
+        returnButton.setTitle("返回", for: .normal)
+        returnButton.setTitleColor(UIColor.lightGray, for: .normal)
+        returnButton.addTarget(self, action: #selector(goback), for: .touchUpInside)
+        returnButton.frame = CGRect.init(x: 0, y:  0, width: 60, height: 44)
+        returnButton.isHidden = true
+        navigationItem.leftBarButtonItem = UIBarButtonItem.init(customView: returnButton)
+        // js交互相关
         WKWebViewJavascriptBridge.enableLogging()
         _bridge = WKWebViewJavascriptBridge(for: wkWebView)
         // js 调用 swift，先注册
         _bridge.registerHandler("action1") { [weak self] (data, responseCallback:WVJBResponseCallback?) in
             // 数据处理
             if let responseBlock = responseCallback {
-                var href = "../../Web/html/IFIAnswer.html?id="
-                if data is Dictionary<String, String> {
-                    let dict = data as! Dictionary<String, String>
-                    href = "../../Web/html/IFIAnswer.html?id=" + dict["id"]!
+                var href = "../../Web/html/"
+                let dataDict = data as! Dictionary<String, Any>
+                let id = dataDict["id"] as! String
+                let pageIndex = dataDict["pageIndex"] as? NSNumber
+                switch pageIndex?.intValue {
+                case 0:
+                    href = href + "IFIAnswer.html?id=" + id
+                case 1:
+                    href = href + "IFIAnswerT.html?id=" + id
+                case 2:
+                    href = href + "IFIWave.html"
+                default:
+                    print("no type")
                 }
                 let dict = ["href" : href]
                 // 数据返还给js
                 responseBlock(self?.getJSONStringFromDictionary(dictionary: dict as NSDictionary))
+                self?.navigationItem.leftBarButtonItem?.customView?.isHidden = false;
             }
+        }
+        // 处理隐藏与展示导航按钮
+        _bridge.registerHandler("showBackItem") { [weak self] (data, responseCallback:WVJBResponseCallback?) in
+            // 数据处理
+            let dataDict = data as! Dictionary<String, Any>
+            let id = dataDict["hidden"] as! Bool
+            self?.navigationItem.leftBarButtonItem?.customView?.isHidden = id
         }
         _bridge.setWebViewDelegate(self)
         startLoad()
@@ -61,6 +87,10 @@ class IFINewHomeViewController: UIViewController,WKUIDelegate,WKNavigationDelega
         let url = URL.init(fileURLWithPath: filePath!, relativeTo: nil)
         let request = URLRequest.init(url: url)
         wkWebView.load(request)
+    }
+    @objc func goback(){
+        // 返回webview的上一页
+        wkWebView.goBack()
     }
     // webview 开始加载
     func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
